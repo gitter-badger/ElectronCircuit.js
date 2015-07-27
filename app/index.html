@@ -8,7 +8,33 @@
   <body>
     <h1>First Build</h1>
     <p>Powered by Github <i class="fa fa-github fa-3x"></i></p>
+    <p>
+      Enter Pack Code:
+      <input type="text" id="pack" >
+      <button onclick="httpGet()">
+        Request
+      </button>
+    </p>
+
+
+
     <!-- We are using io.js <script>document.write(process.version)</script>
     and Electron <script>document.write(process.versions['electron'])</script>. -->
   </body>
 </html>
+<script type="text/javascript">
+  function httpGet() {
+    var packCode = document.getElementById('pack').value;
+    if(packCode != null) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://o.ramac.me:3000/api/packs/559c585953af49c822a1b85c", false);
+      xhr.send();
+
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+
+    }
+
+    // alert(packCode);
+  }
+</script>
