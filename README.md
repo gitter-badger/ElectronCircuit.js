@@ -6,6 +6,4 @@ Dependencies:
 
 -Font-Awesome 4.4.0,
 
--Node.js,
-
 -Electron
