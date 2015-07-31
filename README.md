@@ -7,3 +7,5 @@ Dependencies:
 -Font-Awesome 4.4.0,
 
 -Electron
+
+-Bootstrap-3.3.5-dist
