@@ -11,7 +11,8 @@
       <nav class="navbar navbar-default nav">
         <div class="container-fluid">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#"><h4><i class="fa fa-home"></i> Home</h4></a> </li>
+            <li class="active"><a href="index.html"><h4><i class="fa fa-home"></i> Home</h4></a> </li>
+            <li><a href="packs.html"><h4><i class="fa fa-cubes"></i> Packs</h4></a></li>
             <li><a href="https://github.com/codymalick/ElectronCircuit.js"><h4><i class="fa fa-github"></i> Contribute</h4></a></li>
             <li><a href="#"><h4><i class="fa fa-comment-o"></i> Contact Me</h4></a></li>
           </ul>
@@ -24,7 +25,7 @@
             <div class="col-md-5 search">
               Enter Pack Code:
               <input type="text" id="pack" value="559c585953af49c822a1b85c">
-              <button onclick="httpGet()">
+              <button onclick="http_get_pack()">
                 Request
               </button>
             </div>
@@ -50,7 +51,7 @@
 </html>
 <script type="text/javascript">
   var json_obj;
-  function httpGet() {
+  function http_get_pack() {
     var packCode = document.getElementById('pack').value;
     if(packCode != null) {
       var xhr = new XMLHttpRequest();

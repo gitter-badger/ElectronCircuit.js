@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type"../text/css" href="../css/stylesheet.css"/>
+    <link rel="stylesheet" href="../css/font-awesome-4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <title>ElectronCircuit.js</title>
+  </head>
+  <body>
+    <div class="row">
+      <nav class="navbar navbar-default nav">
+        <div class="container-fluid">
+          <ul class="nav nav-tabs">
+            <li><a href="index.html"><h4><i class="fa fa-home"></i> Home</h4></a> </li>
+            <li class="active"><a href="packs.html"><h4><i class="fa fa-cubes"></i> Packs</h4></a></li>
+            <li><a href="https://github.com/codymalick/ElectronCircuit.js"><h4><i class="fa fa-github"></i> Contribute</h4></a></li>
+            <li><a href="#"><h4><i class="fa fa-comment-o"></i> Contact Me</h4></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel panel-default main">
+        <div class="container-fluid">
+          <div class="row">
+            <button type="button" name="button" onclick="http_get_packs()">Get All Packs</button>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
+
+
+<script type="text/javascript">
+  var json_obj;
+  function http_get_packs() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://o.ramac.me:3000/api/packs", false);
+      xhr.send();
+      if (xhr.status == 200) {
+          json_obj = JSON.parse( xhr.responseText );
+          console.log(xhr.responseText);
+      } else {
+        console.log(xhr.status);
+        console.log(xhr.responseText);
+      }
+
+
+    // alert(packCode);
+  }
+</script>
