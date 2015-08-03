@@ -22,7 +22,12 @@
       <div class="panel panel-default main">
         <div class="container-fluid">
           <div class="row">
-            <button type="button" name="button" onclick="http_get_packs()">Get All Packs</button>
+            <button type="button" name="button" id="button" onclick="http_get_packs()">Get All Packs</button>
+          </div>
+          <div id="output" class="row">
+            <ul id="unordered">
+
+            </ul>
           </div>
         </div>
       </div>
@@ -31,20 +36,28 @@
 
 
 <script type="text/javascript">
+
   var json_obj;
+
   function http_get_packs() {
       var xhr = new XMLHttpRequest();
       xhr.open("GET", "http://o.ramac.me:3000/api/packs", false);
       xhr.send();
       if (xhr.status == 200) {
           json_obj = JSON.parse( xhr.responseText );
-          console.log(xhr.responseText);
+          console.log(json_obj);
+          var ul = document.getElementById('unordered');
+          for(var pack in json_obj) {
+            var li = document.createElement("li");
+            var text = document.createTextNode(json_obj[pack]._id);
+            li.appendChild(text);
+            ul.appendChild(li);
+          }
+
       } else {
         console.log(xhr.status);
         console.log(xhr.responseText);
       }
+    }
 
-
-    // alert(packCode);
-  }
 </script>
