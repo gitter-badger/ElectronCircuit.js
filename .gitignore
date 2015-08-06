@@ -1,3 +1,5 @@
 node_modules/
 Electron/
 app/font-awesome-4.4.0
+app/assets/css
+app/assets/scripts
